@@ -47,7 +47,6 @@ public class OperationStageController {
 
     @GetMapping("/{stageId}/types")
     List<OperationTypeDTO> readTypes(@PathVariable Long stageId){
-        System.out.println("I'm get service!");
         OperationStage stage = stageService.read(stageId);
         List<OperationType> types = stage.getOperationTypes();
         return types.stream().map(type->dtoMapper.map(type)).collect(Collectors.toList());
